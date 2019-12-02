@@ -1,0 +1,141 @@
+body {
+  background-image: url(../static/bg4.jpg);
+  color: #333333;
+  margin-top: 5rem;
+  background-position: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: #08141d;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #2a8ec8;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #d82f2f;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.navbar-dark .navbar-brand {
+  color: blueviolet;
+}
+.navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
+  color: rgb(202, 28, 28);
+}
+
+
+
+
+.content-section {
+  background: #3bbe92;
+  padding: 40px 20px;
+  border: 5px solid #882f2f;
+  border-radius: 10px;
+  width: 80%;
+  opacity: 0.9;
+  color: rgb(1, 28, 87);
+  top:50%;
+  left:50%;
+  margin-top:10%; /* this is half the height of your div*/  
+ margin-left:20%;
+}
+.b{
+    display: inline-block;
+    position: relative;
+    margin: 3%;
+    width: 43%;
+    height: 125px;
+    background-color: rgb(118, 228, 228);
+    opacity: 0.8;
+
+}
+.article-title {
+  color: #550000;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.my-form{
+  padding: 20px;
+}
+.my-form .form-group{
+  padding-bottom: 15px;
+}
+.my-form label{
+  display: block;
+} 
+.my-form input[type="text"],.my-form textarea{
+  padding: 8px;
+  width: 100%;
+}
+/*.my-form input[type = "submit"]{ 
+  background-color:black;
+  color: red;
+  padding: 10px 15px;
+  border: none;
+}*/
+.button{
+  background-color:black;
+  color: red;
+  padding: 10px 15px;
+  border: none; 
+}
+.button:hover{
+  color:white;
+  background-color: red;
+}
+.alert 
+{
+  width: 80%;
+  right: -20%;
+}

@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    {% if title %}
+        <title>TTT - {{ title }}</title>
+    {% else %}
+        <title>Talking Typing Tutor</title>
+    {% endif %}
+    <style>
+      /* The sidebar menu */
+.sidenav {
+  height: 69%; /* Full-height: remove this if you want "auto" height */
+  width: 227px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin-top: 7%;
+  margin-left: 3%;
+  border: 5px solid #882f2f;
+  background-color: #3bbe92;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #550000;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/">TalkingTyping Tutor</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('lessons') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('lessons') }}">Lessons</a>
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if current_user.is_authenticated %}
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+              {% endif %}
+              </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          <article class="media content-section">
+            <div class="media-body">
+                {% block content %}{% endblock content %}
+                  <div class="form-group">
+                                  {{ form.answer.label(class = "form-control-label")}}
+                                  {% if form.answer.errors %}
+                                      {{ form.answer(class = "form-control form-control-lg is-invalid")}}  
+                                      <div class ="invalid-feedback">
+                                          {% for error in form.answer.errors %}
+                                              <span>{{ error }}</span>
+                                          {% endfor %}
+                                      </div>
+                                  {% else %}
+                                      {{ form.answer(class = "form-control form-control-lg")}}
+                                  {% endif %}
+                          </div>
+                         
+              <div class ="form-group">
+                      {{ form.submit(class= "btn btn-primary") }}
+              </div>
+              </form>  
+             
+        </div>
+      </div>
+    </main>
+    <div class="sidenav">
+
+      <table align="center" class="table table-striped">
+       
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/about">About_Us</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lessons">Lesson Plan</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson1">Lesson 1</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson2">Lesson 2</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson3">Lesson 3</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson4">Lesson 4</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson5">Lesson 5</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson6">Lesson 6</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson7">Lesson 7</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson8">Lesson 8</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson9">Lesson 9</a></td></tr>
+              <tr><td style="width:100px ;padding:0px" align="left"><a href="/lesson10">Lesson 10</a></td></tr>
+       
+      </table>
+
+  
+	
+	
+	

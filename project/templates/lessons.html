@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts %}
+        <article class="media b row" >
+          <div class="media-body col">
+            <h2><a class="article-title" href="{{ url_for('lesson' + post.number ) }}">{{ post.title }}</a></h2> 
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    <script>
+    var msg = new SpeechSynthesisUtterance("Welcome to the lessonspage");
+    var msg2 = new SpeechSynthesisUtterance("Here you can access all the lessons");
+    window.speechSynthesis.speak(msg);
+    window.speechSynthesis.speak(msg2);
+</script>
+{% endblock content %}

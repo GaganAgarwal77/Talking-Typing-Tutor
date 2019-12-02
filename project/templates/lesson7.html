@@ -1,0 +1,51 @@
+{% extends "lessons_layout.html" %}
+{% block content %}
+    <h2><a class="article-title" href="#">{{posts[6]['title']}}</a></h2> 
+    <p class="article-content">{{ posts[6]['content'] }}</p>
+</div>
+</article>
+<div class = "content-section">
+<form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+            Lesson Content : <input type ="text" name = "content" class = "form-control form-control-lg" disabled value = "{{ posts[6]['lesson'] }}"><br>
+      </div>
+      <script>
+            var msg = new SpeechSynthesisUtterance(' You have to type the following text');
+            var msg2 = new SpeechSynthesisUtterance( '{{ posts[6].lesson }}' );    
+            var space_msg =new SpeechSynthesisUtterance('space')
+            var arr = msg2.text.split(/[\s, ]+/ )
+            var j =0;
+            for(var i =0;i<msg2.text.length;i++)
+            {
+                if (msg2.text[i] == " ")
+                 {
+                    arr.splice((2*j+1),0,"space");
+                    j++;
+                
+                
+                }
+                else if (msg2.text[i] == ",")
+                {
+                    arr.splice((2*j+1),0,"comma");
+                    j++;
+                    i++;
+                }
+                else if (msg2.text[i] == ".")
+                {
+                    arr.splice((2*j+1),0,"full stop");
+                    j++;
+                    i++;
+                }
+                else if(msg2.text[i] == ",  ")
+                {
+                    
+                }
+            }
+            window.speechSynthesis.speak(msg);
+            for(var j =0; j<arr.length; j++)
+            {
+                window.speechSynthesis.speak(new SpeechSynthesisUtterance(arr[j]));
+            }
+            </script>
+{% endblock content %}

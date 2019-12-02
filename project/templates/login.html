@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+    <br>
+    <br>
+    <div class = "content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class = "border-bottom mb-4">Login</legend>
+                <div class="form-group">
+                    {{ form.email.label(class = "form-control-label")}}
+                    
+                    {% if form.email.errors %}
+                        {{ form.email(class = "form-control form-control-lg is-invalid")}}   
+                        <div class ="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                            {{ form.email(class = "form-control form-control-lg")}}
+                        {% endif %}
+                </div>
+                <div class="form-group">
+                        {{ form.password.label(class = "form-control-label")}}
+                        {% if form.password.errors %}
+                            {{ form.password(class = "form-control form-control-lg is-invalid")}}   
+                            <div class ="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class = "form-control form-control-lg")}}
+                        {% endif %}
+                </div>
+                <div class = "form-check">
+                    {{ form.remember(class = "form-check-input") }}
+                    {{ form.remember.label(class = "form-check-label") }}
+                </div>
+            </fieldset>
+            <br>
+            <div class ="form-group">
+                {{ form.submit(class= "btn btn-primary") }}
+            </div>
+        </form>
+        <br><br><br>    
+    <div class="border-top pt-2">
+        <small class="text-dark">
+            Don't Have an Account?<a class ="ml-2" href= "{{ url_for('register') }}">Sign Up</a>
+        </small>
+    </div>
+</div>
+<script>
+    var msg = new SpeechSynthesisUtterance("Welcome to the login page");
+    var msg2 = new SpeechSynthesisUtterance("You have to enter enter your registered email id and password to login");
+    var msg3 = new SpeechSynthesisUtterance("Hit tab to move to the password field and after you type the password hit enter to submit");
+    window.speechSynthesis.speak(msg);
+    window.speechSynthesis.speak(msg2);
+    window.speechSynthesis.speak(msg3);
+</script>
+{% endblock content %}

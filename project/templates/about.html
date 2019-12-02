@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+    background-color: rgb(49, 23, 110);
+    color : rgb(9, 94, 105);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.6em;
+    background-image: url("../static/bg4.jpg");
+    background-position: center;
+
+}
+h1{
+    color: rgb(119, 0, 0)
+}
+
+.content{
+    width: 960px;
+    margin:auto;
+      position:absolute;
+     top:50%;
+     left:50%;
+     margin-top:-15%; 
+    margin-left:-28%;
+}
+.box-1{
+    background-color: rgb(150, 203, 219);
+    border: 5px rgb(137, 233, 217) solid;
+    border-width:4px;
+    padding: 40px;
+    margin:40px ;
+    opacity: 0.85;
+}
+.box-1 h1{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: uppercase;
+    word-spacing: 0.7em;
+    text-align: center;
+}
+.box-1 h2{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#main-footer{
+    background: grey;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top:850px;
+    opacity: 0.6;
+}
+
+    .container {
+                position: relative;
+                width: 100%;
+                max-width: 400px;
+                text-align:center;
+                color:maroon;
+                position:absolute;
+     top:50%;
+     left:50%;
+     margin-top:10%; /* this is half the height of your div*/  
+    margin-left:-50%;
+                }
+              
+               .container img {
+                width: 100%;
+                height: auto;
+                }
+                .container .button {
+                    background-color: #f44336;
+                    border: none;
+                    color: white;
+                    padding: 40px;
+                    text-align: center;
+                    text-decoration: none;
+                    outline:none;
+                    display: inline-block;
+                    font-size: 30px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    transition-duration:0.4s;
+                    box-shadow:0 9px #999;
+                    transition:all 0.5s;
+                    width:200px;
+                    border-radius:12px;
+                    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+                }
+                .container .button1{
+                    position: absolute;
+                    top: 85%;
+                    left: 180%;
+                    top: 85%;
+                    left: 180%;
+                    transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                }
+                .container .button2{
+                    position: absolute;
+                    top: 85%;
+                    left: 260%;
+                    top: 85%;
+                    left: 260%;
+                    transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                }
+            .container .button:active{
+                    background-color: #3e8e41;
+                    box-shadow: 0 5px #666;
+                    transform: translateY(4px);
+                }
+            .button:hover{
+                    background-color: #3e8e41
+                }
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+                }
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+                }
+            .button:hover span {
+                padding-right: 25px;
+                }
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;  
+}
+    </style>
+</head>
+
+<body>
+        <div class = "content">
+                <div class="box-1">
+                <h1>About Us</h1>
+                <p>
+                    Talking Typing Tutor is a web application that allows its users to get better at typing,it is aimed at people who are visually chalenged.The application will basically dictate lessons to the user, which the user then has to type in the provided text area.It allows users to type with the help of hearing what they have to type rather than just seeing.
+                </p>
+                </div>
+        </div>
+        <div class="clr"></div>
+        <div class="container"> 
+                <a href = "{{ url_for('lessons') }}">
+                <button class="button button1" style="vertical-align:middle"><span>Lessons</span></button></a>
+                <a href = "{{ url_for('welcome') }}">
+                <button class="button button2" style="vertical-align:middle"><span>Home</span></button></a>
+            </div>    
+
+        <footer id="main-footer">
+            <p>Copyright &copy; 2019 Talking Typing Tutor</p>
+        </footer>
+        <script>
+            var msg = new SpeechSynthesisUtterance("Talking Typing Tutor is a web application that allows its users to get better at typing, it is aimed at people who are visually challenged. The application will basically dictate lessons to the user, which the user then has to type in the provided text area.");
+            var msg2 = new SpeechSynthesisUtterance("It allows users to type with the help of hearing what they have to type rather than just seeing.");
+            window.speechSynthesis.speak(msg)
+            window.speechSynthesis.speak(msg2)
+        </script>
+</body>
+</html>
